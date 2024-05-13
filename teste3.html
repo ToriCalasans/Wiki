@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+    <title>Árvore Genealógica</title>
+    <style>
+        .hidden {
+            display: none;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="container">
+        <div class="row align-items-center">
+        <div id="primeiro-personagem" class="col-md">
+            <h2>Adicionar Primeiro Personagem</h2>
+            <form id="form-primeiro-personagem">
+                <div class="mb-3">
+                    <label for="primeiro-nome" class="form-label">Nome do Primeiro Personagem:</label>
+                    <input type="text" class="form-control" id="primeiro-nome" required>
+                </div>
+                <button type="submit" class="btn btn-primary">Adicionar</button>
+            </form>
+        </div>
+    </div>
+
+        <!-- Seção para adicionar outros personagens -->
+        <div id="outros-personagens" class="hidden">
+            <h2>Adicionar Outros Personagens</h2>
+            <form id="form-outros-personagens">
+                <div class="mb-3">
+                    <label for="outro-nome" class="form-label">Nome do Outro Personagem:</label>
+                    <input type="text" class="form-control" id="outro-nome" required>
+                </div>
+                <button type="submit" class="btn btn-primary">Adicionar</button>
+            </form>
+        </div>
+
+        <!-- Tabela para exibir personagens e parentescos -->
+        <div id="tabela-personagens" class="hidden">
+            <h2>Personagens e Parentescos</h2>
+            <table id="tabela" class="table">
+                <thead>
+                    <tr>
+                        <th scope="col">Nome</th>
+                        <th scope="col">Grau de Parentesco</th>
+                    </tr>
+                </thead>
+                <tbody id="tbody">
+                    <!-- Aqui serão listadas as pessoas cadastradas -->
+                </tbody>
+            </table>
+        </div>
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM"
+        crossorigin="anonymous"></script>
+    <script src="script.js"></script>
+    <script>
+        // Event listener para o formulário de cadastro do primeiro personagem
+        document.getElementById('form-primeiro-personagem').addEventListener('submit', function (event) {
+            event.preventDefault();
+            const nome = document.getElementById('primeiro-nome').value;
+            adicionarPrimeiroPersonagem(nome);
+        });
+
+        // Função para adicionar o primeiro personagem
+        function adicionarPrimeiroPersonagem(nome) {
+            // Adicione aqui a lógica para adicionar o primeiro personagem
+            // Exemplo: Mostrar a seção para adicionar outros personagens
+            document.getElementById('primeiro-personagem').classList.add('hidden');
+            document.getElementById('outros-personagens').classList.remove('hidden');
+        }
+
+        // Event listener para o formulário de cadastro de outros personagens
+        document.getElementById('form-outros-personagens').addEventListener('submit', function (event) {
+            event.preventDefault();
+            const nome = document.getElementById('outro-nome').value;
+            adicionarOutroPersonagem(nome);
+        });
+
+        // Função para adicionar outros personagens
+        function adicionarOutroPersonagem(nome) {
+            // Adicione aqui a lógica para adicionar outros personagens
+            // Exemplo: Mostrar a tabela com personagens e parentescos
+            document.getElementById('outros-personagens').classList.add('hidden');
+            document.getElementById('tabela-personagens').classList.remove('hidden');
+        }
+    </script>
+</body>
+
+</html>
